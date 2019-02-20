@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Practika1</string>
+    <string name="next_button"> Далее </string>
+    <string name="change_image"> Картинка </string>
+    <string name="hint_textEmailAddress"> textEmailAddress </string>
+    <string name="hint_name">Name </string>
+</resources>

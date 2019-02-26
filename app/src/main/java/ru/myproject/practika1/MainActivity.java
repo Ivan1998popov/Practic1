@@ -13,14 +13,13 @@ import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btn_next, change_image;
+    Button btn_next;
     EditText name ,password;
     ImageView myImage;
     public static int image;
     int []ID =new int[]{R.drawable.bmwm2,R.drawable.gelandewagen,R.drawable.gelic2};
     private static String KEY_NAME="key_name";
     private static String KEY_EMAIL_ADDRESS="key_email_address";
-   // private static String KEY_IMAGE="key_image";
 
 
 
@@ -28,14 +27,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        myImage =findViewById(R.id.imageView);
-//        if(savedInstanceState!=null){
-//            image=savedInstanceState.getInt(KEY_IMAGE,0);
-//            myImage.setImageResource(ID[image]);
-//        }else {
-//            myImage.setImageResource(ID[2]);
-//            image = 2;
-//        }
+
         name =findViewById(R.id.text_name);
         password =findViewById(R.id.text_password);
 
@@ -47,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent =new Intent(MainActivity.this,SecondActivity.class);
+                Intent intent =new Intent(MainActivity.this,FragmentActivity.class);
                 Bundle myBundle =new Bundle();
                 myBundle.putString(KEY_NAME,name.getText().toString());
                 myBundle.putString(KEY_EMAIL_ADDRESS,password.getText().toString());
@@ -56,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-       // change_image=findViewById(R.id.change_image);
+
 
     }
 
@@ -67,11 +59,4 @@ public class MainActivity extends AppCompatActivity {
         myImage.setImageResource(ID[image]);
 
     }
-
-//    @Override
-//    public void onSaveInstanceState(Bundle outState) {
-//        super.onSaveInstanceState(outState);
-//        outState.putInt(KEY_IMAGE,image);
-//
-//    }
 }

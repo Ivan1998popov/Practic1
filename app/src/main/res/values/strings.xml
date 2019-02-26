@@ -4,4 +4,8 @@
     <string name="change_image"> Картинка </string>
     <string name="hint_textEmailAddress"> textEmailAddress </string>
     <string name="hint_name">Name </string>
+    <string name="str_1">Str1</string>
+    <string name="str_2">Str2</string>
+    <string name="str_3">Str3</string>
+    <string name="str_4">Str4</string>
 </resources>

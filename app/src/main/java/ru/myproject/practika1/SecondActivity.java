@@ -35,7 +35,6 @@ public class SecondActivity extends AppCompatActivity {
         if(myIntent!=null){
             Bundle myIntentBundleExtra =myIntent.getExtras();
             String name =myIntentBundleExtra.getString("key_name");
-            String password =myIntentBundleExtra.getString("key_email_address");
             String text_view=name+"\n";
             get_text.setText(text_view);
 

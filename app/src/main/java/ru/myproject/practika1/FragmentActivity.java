@@ -1,20 +1,18 @@
 package ru.myproject.practika1;
 
-import android.app.Activity;
-import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.widget.DrawerLayout;
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.view.MenuItem;
-import android.widget.Toast;
+        import android.app.Activity;
+        import android.support.design.widget.NavigationView;
+        import android.support.v4.widget.DrawerLayout;
+        import android.os.Bundle;
+        import android.view.MenuItem;
+
 
 public class FragmentActivity extends Activity {
 
 
     private DrawerLayout mDrawerLayout;
+    private static String KEY_FRAGMENT = "key_fragment";
+    private int temp_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,12 +20,50 @@ public class FragmentActivity extends Activity {
         setContentView(R.layout.activity_fragment);
 
 
-
-
         mDrawerLayout = findViewById(R.id.my_drawer);
         NavigationView navigationView = findViewById(R.id.nav_view);
 
+
+        if (savedInstanceState != null) {
+            temp_id = savedInstanceState.getInt(KEY_FRAGMENT);
+
+            switch (temp_id) {
+                case R.id.str1:
+                    Fragment_1 frag1 = new Fragment_1();
+                    getFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.content_frame, frag1)
+                            .commit();
+                    temp_id = 0;
+                    break;
+                case R.id.str2:
+                    Fragment_2 frag2 = new Fragment_2();
+                    getFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.content_frame, frag2)
+                            .commit();
+                    temp_id = 1;
+                    break;
+                case R.id.str4:
+                    Fragment_4 frag4 = new Fragment_4();
+                    getFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.content_frame, frag4)
+                            .commit();
+                    temp_id = 2;
+                    break;
+            }
+        } else {
+            Fragment_3 frag3 = new Fragment_3();
+            getFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.content_frame, frag3)
+                    .commit();
+        }
+
+
         navigationView.setNavigationItemSelectedListener(
+
 
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
@@ -39,23 +75,32 @@ public class FragmentActivity extends Activity {
                                 Fragment_1 frag1 = new Fragment_1();
                                 getFragmentManager()
                                         .beginTransaction()
-                                        .replace(R.id.content_frame,frag1)
+                                        .replace(R.id.content_frame, frag1)
                                         .commit();
-                                Toast.makeText(FragmentActivity.this,"Привет из str1"
-                                        ,Toast.LENGTH_LONG).show();
+                                temp_id = 0;
                                 break;
                             case R.id.str2:
                                 Fragment_2 frag2 = new Fragment_2();
                                 getFragmentManager()
                                         .beginTransaction()
-                                        .replace(R.id.content_frame,frag2)
+                                        .replace(R.id.content_frame, frag2)
                                         .commit();
+                                temp_id = 1;
                                 break;
                             case R.id.str3:
-
+                                Fragment_3 frag3 = new Fragment_3();
+                                getFragmentManager()
+                                        .beginTransaction()
+                                        .replace(R.id.content_frame, frag3)
+                                        .commit();
                                 break;
                             case R.id.str4:
-
+                                Fragment_4 frag4 = new Fragment_4();
+                                getFragmentManager()
+                                        .beginTransaction()
+                                        .replace(R.id.content_frame, frag4)
+                                        .commit();
+                                temp_id = 2;
                                 break;
                         }
                         mDrawerLayout.closeDrawers();
@@ -68,4 +113,10 @@ public class FragmentActivity extends Activity {
     }
 
 
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt(KEY_FRAGMENT, temp_id);
+
+    }
 }

@@ -1,10 +1,12 @@
 package ru.myproject.practika1;
 
-        import android.app.Activity;
-        import android.support.design.widget.NavigationView;
-        import android.support.v4.widget.DrawerLayout;
-        import android.os.Bundle;
-        import android.view.MenuItem;
+import android.app.Activity;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
+import android.os.Bundle;
+import android.view.MenuItem;
 
 
 public class FragmentActivity extends Activity {
@@ -36,11 +38,11 @@ public class FragmentActivity extends Activity {
                             .commit();
                     temp_id = 0;
                     break;
-                case R.id.str2:
-                    Fragment_2 frag2 = new Fragment_2();
+                case R.id.str3:
+                    Fragment_3 frag3 = new Fragment_3();
                     getFragmentManager()
                             .beginTransaction()
-                            .replace(R.id.content_frame, frag2)
+                            .replace(R.id.content_frame, frag3)
                             .commit();
                     temp_id = 1;
                     break;
@@ -54,10 +56,10 @@ public class FragmentActivity extends Activity {
                     break;
             }
         } else {
-            Fragment_3 frag3 = new Fragment_3();
+            Fragment_2 frag2 = new Fragment_2();
             getFragmentManager()
                     .beginTransaction()
-                    .replace(R.id.content_frame, frag3)
+                    .replace(R.id.content_frame, frag2)
                     .commit();
         }
 
@@ -75,30 +77,34 @@ public class FragmentActivity extends Activity {
                                 Fragment_1 frag1 = new Fragment_1();
                                 getFragmentManager()
                                         .beginTransaction()
-                                        .replace(R.id.content_frame, frag1)
+                                        .replace(R.id.content_frame, frag1).addToBackStack(null)
                                         .commit();
+
                                 temp_id = 0;
                                 break;
                             case R.id.str2:
                                 Fragment_2 frag2 = new Fragment_2();
-                                getFragmentManager()
-                                        .beginTransaction()
+                                getFragmentManager().beginTransaction()
                                         .replace(R.id.content_frame, frag2)
+                                        .addToBackStack(null)
                                         .commit();
-                                temp_id = 1;
+
                                 break;
                             case R.id.str3:
                                 Fragment_3 frag3 = new Fragment_3();
-                                getFragmentManager()
-                                        .beginTransaction()
+
+                                getFragmentManager().beginTransaction()
                                         .replace(R.id.content_frame, frag3)
+                                        .addToBackStack(null)
                                         .commit();
+                                temp_id = 1;
                                 break;
                             case R.id.str4:
                                 Fragment_4 frag4 = new Fragment_4();
                                 getFragmentManager()
                                         .beginTransaction()
                                         .replace(R.id.content_frame, frag4)
+                                        .addToBackStack(null)
                                         .commit();
                                 temp_id = 2;
                                 break;

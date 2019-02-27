@@ -5,8 +5,8 @@
     <color name="colorAccent">#D81B60</color>
 
 
-    <color name="black">#000</color>
-    <color name="royalBlue">#4169E1</color>
+    <color name="red">#EC0707</color>
+    <color name="green">#38F00F</color>
     <color name="blue">#000080</color>
-    <color name="coral">#FF7F50</color>
+    <color name="yellow">#E4D90E</color>
 </resources>

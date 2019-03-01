@@ -1,8 +1,6 @@
 package ru.myproject.practika1;
 
 import android.app.Activity;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.os.Bundle;
@@ -65,7 +63,6 @@ public class FragmentActivity extends Activity {
 
 
         navigationView.setNavigationItemSelectedListener(
-
 
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override

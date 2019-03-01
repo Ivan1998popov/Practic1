@@ -8,4 +8,15 @@
     <string name="str_2">Избранные книги</string>
     <string name="str_3">Информация о выбранной книге</string>
     <string name="str_4">об Авторе</string>
+
+
+    <string name="text_name1">Достоевский Ф.М.</string>
+    <string name="text_name2">Преступление и наказание</string>
+    <string name="text_name3">Роман</string>
+
+
+
+    <string name="text_view1">Библиотека</string>
+    <string name="text_view2">версия 1.0</string>
+    <string name="text_view3">Автор: Попов И. В.</string>
 </resources>

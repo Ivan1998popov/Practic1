@@ -4,6 +4,7 @@
     android:id="@+id/scroll"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
@@ -17,29 +18,30 @@
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/image_book" />
+        android:layout_gravity="center"
+        android:src="@drawable/image_1" />
 
     <TextView
-        android:id="@+id/text_name1"
+        android:id="@+id/text_author"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/text_name1"
+        android:text="@string/text_name_author"
         android:layout_marginTop="5dp"
         android:textColor="@color/black"/>
 
     <TextView
-        android:id="@+id/text_name2"
+        android:id="@+id/name_book"
         android:layout_marginTop="5dp"
         android:layout_width="wrap_content"
         android:textColor="@color/black"
         android:layout_height="wrap_content"
-        android:text="@string/text_name2" />
+        android:text="@string/text_book" />
     <TextView
-        android:id="@+id/text_name3"
+        android:id="@+id/text_genre"
         android:layout_marginTop="5dp"
         android:layout_width="wrap_content"
         android:textColor="@color/black"
         android:layout_height="wrap_content"
-        android:text="@string/text_name3" />
+        android:text="@string/text_genre" />
 </LinearLayout>
 </ScrollView>

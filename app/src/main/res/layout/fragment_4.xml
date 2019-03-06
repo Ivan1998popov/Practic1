@@ -6,34 +6,34 @@
     android:orientation="vertical">
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:orientation="vertical">
 
 
         <TextView
-            android:id="@+id/text_view1"
+            android:id="@+id/text_name_application"
             android:layout_width="wrap_content"
             android:layout_gravity="center"
             android:layout_height="wrap_content"
-            android:text="@string/text_view1"
+            android:text="@string/text_name_application"
             android:textColor="@color/black"/>
 
         <TextView
-            android:id="@+id/text_view2"
+            android:id="@+id/text_version"
             android:layout_gravity="center"
             android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/text_view2" />
+            android:text="@string/text_version" />
 
         <TextView
-            android:id="@+id/text_view3"
+            android:id="@+id/text_author_application"
             android:layout_gravity="center"
             android:layout_marginTop="5dp"
             android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/text_view3" />
+            android:text="@string/text_author_application" />
     </LinearLayout>
 </ScrollView>

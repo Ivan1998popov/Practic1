@@ -10,13 +10,101 @@
     <string name="str_4">об Авторе</string>
 
 
-    <string name="text_name1">Достоевский Ф.М.</string>
-    <string name="text_name2">Преступление и наказание</string>
-    <string name="text_name3">Роман</string>
+    <string name="text_name_author">Достоевский Ф.М.</string>
+    <string name="text_book">Преступление и наказание</string>
+    <string name="text_genre">Роман</string>
 
 
+    <string name="text_name_application">Библиотека</string>
+    <string name="text_version">версия 1.0</string>
+    <string name="text_author_application">Автор: Попов И. В.</string>
 
-    <string name="text_view1">Библиотека</string>
-    <string name="text_view2">версия 1.0</string>
-    <string name="text_view3">Автор: Попов И. В.</string>
+
+    <string-array name="recycler_author">
+        <item>Астрид Линдгрен</item>
+        <item>Булгаков Михаил Афанасьевич</item>
+        <item>Бунин Иван Алексеевич</item>
+        <item>Гоголь Николай Васильевич</item>
+        <item>Горький Максим</item>
+        <item>Грибоедов Александр Сергеевич</item>
+        <item>Грин Александр Степанович</item>
+        <item>Гумилёв Николай Степанович</item>
+        <item>Достоевский Фёдор Михайлович</item>
+        <item>Дюма Александр</item>
+        <item>Карамзин Николай Михайлович</item>
+        <item>Куприн Александр Иванович</item>
+        <item>Лермонтов Михаил Юрьевич</item>
+        <item>Некрасов Николай Алексеевич</item>
+        <item>О. Генри</item>
+        <item>Островский Александр Николаевич</item>
+        <item>Пушкин Александр Сергеевич</item>
+        <item>Редьярд Киплинг</item>
+        <item>Салтыков-Щедрин Михаил Евграфович</item>
+        <item>Толстой Алексей Константинович</item>
+        <item>Толстой Лев Николаевич</item>
+        <item>Тургенев Иван Сергеевич</item>
+        <item>Ханс Кристиан Андерсен</item>
+        <item>Чехов Антон Павлович</item>
+        <item>Чуковский Корней Иванович</item>
+    </string-array>
+
+
+    <string-array name="recycler_book">
+        <item>Малыш и Карлсон, который живёт на крыше</item>
+        <item>Мастер и Маргарита</item>
+        <item>Призраки</item>
+        <item>Ревизор</item>
+        <item>Челкаш</item>
+        <item>Горе от ума</item>
+        <item>Алые паруса</item>
+        <item>Чужое небо</item>
+        <item>Белые ночи</item>
+        <item>Три мушкитера</item>
+        <item>Бедная Лиза</item>
+        <item>Гранатовый браслет</item>
+        <item>Герой нашего времени</item>
+        <item>Железная дорога</item>
+        <item>Дары волхвов</item>
+        <item>Бедность не порок</item>
+        <item>Евгений Онегин</item>
+        <item>Книга Джунглей</item>
+        <item>Дикий помещик</item>
+        <item>Петр Первый</item>
+        <item>Война и мир</item>
+        <item>Отци и дети</item>
+        <item>Оловянный солдатик</item>
+        <item>Человек в футляре</item>
+        <item>Майдодыр</item>
+    </string-array>
+
+
+    <string-array name="recycler_img_book">
+        <item>R.drawable.image_1</item>
+        <item>R.drawable.image_2</item>
+        <item>R.drawable.image_3</item>
+        <item>R.drawable.image_3</item>
+        <item>R.drawable.image_3</item>
+        <item>R.drawable.image_3</item>
+        <item>R.drawable.image_3</item>
+        <item>R.drawable.image_3</item>
+        <item>R.drawable.image_3</item>
+        <item>R.drawable.image_3</item>
+        <item>R.drawable.image_3</item>
+        <item>R.drawable.image_3</item>
+        <item>R.drawable.image_3</item>
+        <item>R.drawable.image_3</item>
+        <item>R.drawable.image_3</item>
+        <item>R.drawable.image_3</item>
+        <item>R.drawable.image_3</item>
+        <item>R.drawable.image_3</item>
+        <item>R.drawable.image_3</item>
+        <item>R.drawable.image_3</item>
+        <item>R.drawable.image_3</item>
+        <item>R.drawable.image_3</item>
+        <item>R.drawable.image_3</item>
+        <item>R.drawable.image_3</item>
+        <item>R.drawable.image_3</item>
+    </string-array>
+
+
 </resources>

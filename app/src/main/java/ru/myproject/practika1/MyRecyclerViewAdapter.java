@@ -1,7 +1,5 @@
 package ru.myproject.practika1;
 
-
-import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;

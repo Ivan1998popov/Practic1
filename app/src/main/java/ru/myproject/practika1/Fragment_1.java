@@ -61,6 +61,7 @@ public class Fragment_1 extends Fragment {
 
         adapter=new MyRecyclerViewAdapter(recyclerAuthor,recyclerBook,myImage);
         recyclerView.setAdapter(adapter);
+        new MyParser(view).execute();
         return view;
     }
 

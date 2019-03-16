@@ -81,6 +81,8 @@ public class MyParser extends AsyncTask<String, Integer, List<String>> {
             recyclerView.setAdapter(adapter);
         } else {
             Collections.reverse(name_book);
+            Collections.reverse(genre);
+            Collections.reverse(author);
             adapter = new MyRecyclerViewAdapterSecond(name_book, genre, author);
             recyclerView.setAdapter(adapter);
         }

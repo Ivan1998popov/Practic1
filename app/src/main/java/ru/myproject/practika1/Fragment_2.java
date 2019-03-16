@@ -91,7 +91,7 @@ public class Fragment_2 extends Fragment {
             @Override
             public void onRefresh() {
                 swipeRefreshLayout.setRefreshing(false);
-                new MyParser(view,recyclerView,1).execute();
+                new MyParser(recyclerView,1).execute();
             }
         });
         return view;

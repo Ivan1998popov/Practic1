@@ -14,15 +14,10 @@
     android:orientation="vertical">
 
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:src="@drawable/image_1" />
+
 
     <TextView
-        android:id="@+id/text_author"
+        android:id="@+id/name_book"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/text_name_author"
@@ -30,14 +25,14 @@
         android:textColor="@color/black"/>
 
     <TextView
-        android:id="@+id/name_book"
+        android:id="@+id/name_genre"
         android:layout_marginTop="5dp"
         android:layout_width="wrap_content"
         android:textColor="@color/black"
         android:layout_height="wrap_content"
         android:text="@string/text_book" />
     <TextView
-        android:id="@+id/text_genre"
+        android:id="@+id/name_author"
         android:layout_marginTop="5dp"
         android:layout_width="wrap_content"
         android:textColor="@color/black"

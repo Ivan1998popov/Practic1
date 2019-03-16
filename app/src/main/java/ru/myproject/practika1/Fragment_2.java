@@ -12,7 +12,9 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -29,6 +31,8 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
@@ -37,17 +41,19 @@ import java.util.concurrent.Executor;
 public class Fragment_2 extends Fragment {
 
 
-    Button button;
     TextView textView;
     String[] name_country = new String[10];
-
+    View view;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
-
+    private SwipeRefreshLayout swipeRefreshLayout;
+    public static List<String> name_country_list=new ArrayList<>();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_2, container, false);
+        view = inflater.inflate(R.layout.fragment_2, container, false);
+
+        swipeRefreshLayout=view.findViewById(R.id.my_refresh_layout);
 
 
         recyclerView = view.findViewById(R.id.recyclerView2);
@@ -78,14 +84,23 @@ public class Fragment_2 extends Fragment {
                 Toast.makeText(getActivity(), "Not found!", Toast.LENGTH_SHORT).show();
             }
         }
-        adapter = new MyRecyclerViewAdapterSecond(name_country);
+        name_country_list = Arrays.asList(name_country);
+        adapter = new MyRecyclerViewAdapterSecond(name_country_list,null,null);
         recyclerView.setAdapter(adapter);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                swipeRefreshLayout.setRefreshing(false);
+                new MyParser(view,recyclerView,1).execute();
+            }
+        });
         return view;
 
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
         switch (requestCode) {

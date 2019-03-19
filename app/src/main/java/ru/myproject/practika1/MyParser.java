@@ -1,10 +1,13 @@
 package ru.myproject.practika1;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.View;
+
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -18,6 +21,8 @@ import static android.support.constraint.Constraints.TAG;
 
 public class MyParser extends AsyncTask<String, Integer, List<String>> {
 
+    private final DBHelper dbHelper;
+    private SQLiteDatabase db1;
     private List<String> name_book = new ArrayList<>();
     private List<String> genre = new ArrayList<>();
     private List<String> author = new ArrayList<>();
@@ -30,10 +35,12 @@ public class MyParser extends AsyncTask<String, Integer, List<String>> {
     private int flag;
 
 
-    MyParser(RecyclerView recyclerView, int flag) {
+    MyParser(Context context, RecyclerView recyclerView) {
         this.recyclerView = recyclerView;
         adapter = recyclerView.getAdapter();
-        this.flag = flag;
+        dbHelper = new DBHelper(context);
+        db1 = dbHelper.getReadableDatabase();
+
 
     }
 
@@ -57,13 +64,27 @@ public class MyParser extends AsyncTask<String, Integer, List<String>> {
                     new TypeToken<List<JsonVersion2>>() {
                     }.getType());
 
+            dbHelper.deleteRecordsFromBook(db1);
             for (int i = 0; i < jsonVersion2.size(); i++) {
 
-                name_book.add(jsonVersion2.get(i).getName());
-                genre.add(jsonVersion2.get(i).getGenre());
-                author.add(jsonVersion2.get(i).getAuthor());
+                dbHelper.insertDataFromJson(jsonVersion2.get(i).getName(),
+                        jsonVersion2.get(i).getGenre(),
+                        jsonVersion2.get(i).getAuthor(), db1);
 
             }
+
+            dbHelper.selectData(db1);
+
+            Cursor cursor = db1.rawQuery("Select name,genre,author from book", new String[]{});
+            if (cursor != null) {
+                cursor.moveToFirst();
+            }
+            do {
+                assert cursor != null;
+                name_book.add(cursor.getString(0));
+                genre.add(cursor.getString(1));
+                author.add(cursor.getString(2));
+            } while (cursor.moveToNext());
 
 
         } else {
@@ -76,10 +97,13 @@ public class MyParser extends AsyncTask<String, Integer, List<String>> {
     @Override
     protected void onPostExecute(List<String> strings) {
 
-        if (flag == 0) {
+        if (Fragment_1.flag == 0) {
+            Fragment_1.flag=1;
             adapter = new MyRecyclerViewAdapterSecond(name_book, genre, author);
             recyclerView.setAdapter(adapter);
-        } else {
+
+        } else if(Fragment_1.flag==1){
+            Fragment_1.flag=0;
             Collections.reverse(name_book);
             Collections.reverse(genre);
             Collections.reverse(author);

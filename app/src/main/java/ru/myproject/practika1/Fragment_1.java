@@ -16,6 +16,8 @@ public class Fragment_1 extends Fragment {
 
     private RecyclerView recyclerView;
     private SwipeRefreshLayout swipeRefreshLayout;
+    public static int flag=0;
+
 
     View view;
     @Override
@@ -33,10 +35,11 @@ public class Fragment_1 extends Fragment {
             @Override
             public void onRefresh() {
                 swipeRefreshLayout.setRefreshing(false);
-                new MyParser(recyclerView,11).execute();
+
+                new MyParser(getActivity(),recyclerView).execute();
             }
         });
-        new MyParser(recyclerView,0).execute();
+        new MyParser(getActivity(),recyclerView).execute();
         return view;
     }
 

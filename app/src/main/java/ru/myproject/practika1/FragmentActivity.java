@@ -1,14 +1,18 @@
 package ru.myproject.practika1;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 
+import java.util.Objects;
 
-public class FragmentActivity extends Activity {
+
+public class FragmentActivity extends AppCompatActivity {
 
 
     private DrawerLayout mDrawerLayout;
@@ -21,7 +25,13 @@ public class FragmentActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment);
 
-
+        Intent myIntent =getIntent();
+        if(myIntent!=null){
+            Bundle myIntentBundleExtra =myIntent.getExtras();
+            assert myIntentBundleExtra != null;
+            String name =myIntentBundleExtra.getString("key_name");
+            setTitle(getTitle()+" : "+name);
+        }
         new MyParser(this).execute();
 
         mDrawerLayout = findViewById(R.id.my_drawer);

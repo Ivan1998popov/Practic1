@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
                     myBundle.putString(KEY_EMAIL_ADDRESS, password.getText().toString());
                     intent.putExtras(myBundle);
                     startActivity(intent);
+
                 }else{
                     Toast.makeText(v.getContext(),"Не правильный логин или пароль!",Toast.LENGTH_LONG).show();
                 }

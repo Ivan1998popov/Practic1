@@ -34,9 +34,12 @@ public class DBHelper extends SQLiteOpenHelper
                 + "author text);");
 
 
-        insertData("student","12345",db);
-        insertData("admin","54321",db);
-        insertData("dasha","1997",db);
+
+        insertData("student","1",db);
+        insertData("admin","2",db);
+        insertData("ivan","3",db);
+        insertData("vladimir","4",db);
+        insertData("nikola","5",db);
     }
 
 

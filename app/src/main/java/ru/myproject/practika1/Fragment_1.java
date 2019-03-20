@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 
 public class Fragment_1 extends Fragment {
 
-    private RecyclerView recyclerView;
+    public static RecyclerView recyclerView;
     private SwipeRefreshLayout swipeRefreshLayout;
     public static int flag=0;
 
@@ -36,10 +36,10 @@ public class Fragment_1 extends Fragment {
             public void onRefresh() {
                 swipeRefreshLayout.setRefreshing(false);
 
-                new MyParser(getActivity(),recyclerView).execute();
+                new MyParser(getActivity(),recyclerView,1).execute();
             }
         });
-        new MyParser(getActivity(),recyclerView).execute();
+        new MyParser(getActivity(),recyclerView,1).execute();
         return view;
     }
 

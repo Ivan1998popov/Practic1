@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                     intent.putExtras(myBundle);
                     startActivity(intent);
                 }else{
-                    Toast.makeText(v.getContext(),"ошибка!",Toast.LENGTH_LONG).show();
+                    Toast.makeText(v.getContext(),"Не правильный логин или пароль!",Toast.LENGTH_LONG).show();
                 }
             }
         });

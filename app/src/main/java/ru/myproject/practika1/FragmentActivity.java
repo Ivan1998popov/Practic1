@@ -5,6 +5,7 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 
 public class FragmentActivity extends Activity {
@@ -14,11 +15,14 @@ public class FragmentActivity extends Activity {
     private static String KEY_FRAGMENT = "key_fragment";
     private int temp_id;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment);
 
+
+        new MyParser(this).execute();
 
         mDrawerLayout = findViewById(R.id.my_drawer);
         NavigationView navigationView = findViewById(R.id.nav_view);

@@ -1,4 +1,4 @@
-package ru.myproject.practika1;
+package ru.myproject.practika1.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import ru.myproject.practika1.R;
 
 public class SecondActivity extends AppCompatActivity {
 

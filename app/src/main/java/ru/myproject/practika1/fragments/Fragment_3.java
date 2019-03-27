@@ -1,4 +1,4 @@
-package ru.myproject.practika1;
+package ru.myproject.practika1.fragments;
 
 
 
@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import ru.myproject.practika1.R;
 
 public class Fragment_3 extends Fragment {
 

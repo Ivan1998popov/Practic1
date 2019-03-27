@@ -1,7 +1,6 @@
-package ru.myproject.practika1;
+package ru.myproject.practika1.activities;
 
 
-import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -12,6 +11,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import ru.myproject.practika1.R;
+import ru.myproject.practika1.database.DBHelper;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -68,8 +70,8 @@ public class MainActivity extends AppCompatActivity {
 
     public boolean check(SQLiteDatabase db3){
 
-       // String[] columns = new String[]{"login", "password"};
-        Cursor cursor = db3.rawQuery("Select login,password from user",new String[]{});
+
+        Cursor cursor = db3.rawQuery("Select id, login,password from user",new String[]{});
 
 
         if(cursor!=null){
@@ -78,10 +80,12 @@ public class MainActivity extends AppCompatActivity {
 
         do {
 
-            String login = cursor.getString(0);
-            String password1 = cursor.getString(1);
+            int id =cursor.getInt(0);
+            String login = cursor.getString(1);
+            String password1 = cursor.getString(2);
 
             if(name.getText().toString().equals(login)&&password.getText().toString().equals(password1)){
+                dbHelper.setId_user(id);
                 cursor.close();
                 return true;
             }

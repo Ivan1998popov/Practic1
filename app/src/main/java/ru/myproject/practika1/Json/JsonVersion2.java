@@ -1,11 +1,9 @@
-package ru.myproject.practika1;
+package ru.myproject.practika1.Json;
 
 import android.support.annotation.NonNull;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-
-import java.util.List;
 
 
 public class JsonVersion2 {

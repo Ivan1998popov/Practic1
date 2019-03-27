@@ -1,4 +1,4 @@
-package ru.myproject.practika1;
+package ru.myproject.practika1.adapters;
 
 import android.graphics.Color;
 import android.support.annotation.NonNull;
@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 
 import java.util.List;
+
+import ru.myproject.practika1.R;
 
 public class MyRecyclerViewAdapter extends
         RecyclerView.Adapter<MyRecyclerViewAdapter.MyViewHolder> {

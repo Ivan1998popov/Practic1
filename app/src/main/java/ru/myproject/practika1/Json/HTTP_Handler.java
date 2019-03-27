@@ -1,4 +1,4 @@
-package ru.myproject.practika1;
+package ru.myproject.practika1.Json;
 
 import android.util.Log;
 

@@ -1,15 +1,18 @@
-package ru.myproject.practika1;
+package ru.myproject.practika1.activities;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.view.View;
 
-import java.util.Objects;
+import ru.myproject.practika1.Json.MyParser;
+import ru.myproject.practika1.R;
+import ru.myproject.practika1.fragments.Fragment_1;
+import ru.myproject.practika1.fragments.Fragment_2;
+import ru.myproject.practika1.fragments.Fragment_3;
+import ru.myproject.practika1.fragments.Fragment_4;
 
 
 public class FragmentActivity extends AppCompatActivity {
@@ -68,7 +71,7 @@ public class FragmentActivity extends AppCompatActivity {
                     break;
             }
         } else {
-            Fragment_2 frag2 = new Fragment_2();
+            Fragment_1 frag2 = new Fragment_1();
             getFragmentManager()
                     .beginTransaction()
                     .replace(R.id.content_frame, frag2)

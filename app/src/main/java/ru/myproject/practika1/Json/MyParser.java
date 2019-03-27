@@ -1,4 +1,4 @@
-package ru.myproject.practika1;
+package ru.myproject.practika1.Json;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -21,6 +21,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import ru.myproject.practika1.Json.HTTP_Handler;
+import ru.myproject.practika1.Json.JsonVersion2;
+import ru.myproject.practika1.adapters.MyRecyclerViewAdapterSecond;
+import ru.myproject.practika1.database.DBHelper;
+import ru.myproject.practika1.fragments.Fragment_1;
+
 import static android.support.constraint.Constraints.TAG;
 
 
@@ -31,7 +37,7 @@ public class MyParser extends AsyncTask<String, Integer, List<String>> {
     private List<String> name_book = new ArrayList<>();
     private List<String> genre = new ArrayList<>();
     private List<String> author = new ArrayList<>();
-    public int id =0;
+    public int id = 0;
     @SuppressLint("StaticFieldLeak")
     private Context mContext;
 
@@ -39,20 +45,20 @@ public class MyParser extends AsyncTask<String, Integer, List<String>> {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
 
-   MyParser (Context context){
-       dbHelper = new DBHelper(context);
-       db1 = dbHelper.getReadableDatabase();
-       mContext=context;
-   }
+    public MyParser(Context context) {
+        dbHelper = new DBHelper(context);
+        db1 = dbHelper.getReadableDatabase();
+        mContext = context;
+    }
 
 
-    MyParser(Context context, RecyclerView recyclerView,int id) {
+    public MyParser(Context context, RecyclerView recyclerView, int id) {
         this.recyclerView = recyclerView;
         adapter = recyclerView.getAdapter();
         dbHelper = new DBHelper(context);
-        mContext=context;
+        mContext = context;
         db1 = dbHelper.getReadableDatabase();
-        this.id=id;
+        this.id = id;
 
 
     }
@@ -66,7 +72,7 @@ public class MyParser extends AsyncTask<String, Integer, List<String>> {
     protected List<String> doInBackground(String... strings) {
         HTTP_Handler http_handler = new HTTP_Handler();
         String url = "https://raw.githubusercontent.com/Lpirskaya/JsonLab/master/Books1.json";
-        if( isOnline(mContext)) {
+        if (isOnline(mContext)) {
             String jsonStr = http_handler.makeServiceCall(url);
 
             Log.e(TAG, "Response from url: " + jsonStr);
@@ -87,8 +93,8 @@ public class MyParser extends AsyncTask<String, Integer, List<String>> {
                             jsonVersion2.get(i).getAuthor(), db1);
 
                 }
-
-                dbHelper.selectData(db1);
+//                Cursor cursor= db1.rawQuery("Select name,genre,author from book",new String[]{});
+//                dbHelper.selectData(cursor);
 
                 recordInData();
 
@@ -97,13 +103,13 @@ public class MyParser extends AsyncTask<String, Integer, List<String>> {
                 Log.e(TAG, "Couldn't get json from server.");
 
             }
-        }else{
+        } else {
             recordInData();
         }
         return null;
     }
 
-    public void recordInData(){
+    public void recordInData() {
         Cursor cursor = db1.rawQuery("Select name,genre,author from book", new String[]{});
         if (cursor != null) {
             cursor.moveToFirst();
@@ -115,9 +121,10 @@ public class MyParser extends AsyncTask<String, Integer, List<String>> {
             author.add(cursor.getString(2));
         } while (cursor.moveToNext());
     }
+
     @Override
     protected void onPostExecute(List<String> strings) {
-        if(id==1) {
+        if (id == 1) {
             if (Fragment_1.flag == 0) {
                 Fragment_1.flag = 1;
                 adapter = new MyRecyclerViewAdapterSecond(name_book, genre, author);
@@ -134,15 +141,16 @@ public class MyParser extends AsyncTask<String, Integer, List<String>> {
         }
 
     }
+
     public static boolean isOnline(Context context) {
-        ConnectivityManager cm = (ConnectivityManager)context
+        ConnectivityManager cm = (ConnectivityManager) context
                 .getSystemService(Context.CONNECTIVITY_SERVICE);
 
         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
         if (activeNetwork != null && activeNetwork.isConnected()) {
             try {
-                URL url = new URL("http://www.google.com/");
-                HttpURLConnection urlc = (HttpURLConnection)url.openConnection();
+                URL url = new URL("https://vk.com/idi.popov___777");
+                HttpURLConnection urlc = (HttpURLConnection) url.openConnection();
                 urlc.setRequestProperty("User-Agent", "test");
                 urlc.setRequestProperty("Connection", "close");
                 urlc.setConnectTimeout(1000); // mTimeout is in seconds

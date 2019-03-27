@@ -1,4 +1,4 @@
-package ru.myproject.practika1;
+package ru.myproject.practika1.fragments;
 
 import android.app.Fragment;
 import android.content.Context;
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import ru.myproject.practika1.R;
 
 public class Fragment_4 extends Fragment {
     @Override
